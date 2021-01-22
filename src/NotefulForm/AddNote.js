@@ -34,6 +34,7 @@ export default class AddNote extends Component {
       content: { value: content, changed: true }
     });
   }
+
   updateFolderName(folder) {
     this.setState({
       folder: { value: folder, changed: true }
@@ -67,9 +68,31 @@ export default class AddNote extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { name, content, folder } = this.state;
+    const { folders = [], notes = [] } = this.context;
     console.log(`Name: ${name.value}`);
     console.log(`Content: ${content.value}`);
     console.log(`Folder: ${folder.value}`);
+
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const JSONBody = JSON.stringify({
+      name: name.value,
+      content: content.value,
+      folder: folder.value
+    });
+
+    const options = {
+      method: "POST",
+      headers: myHeaders,
+      body: JSONBody,
+      redirect: "follow"
+    };
+
+    fetch("http://localhost:9090/notes", options)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log("error", error));
   }
 
   render() {
@@ -78,7 +101,7 @@ export default class AddNote extends Component {
     const noteContentError = this.validateNoteContent();
     const folderNameError = this.validateFolderName();
     const options = folders.map(folder => (
-      <option value={folder.name}>{folder.name}</option>
+      <option value={folder.id}>{folder.name}</option>
     ));
 
     return (
