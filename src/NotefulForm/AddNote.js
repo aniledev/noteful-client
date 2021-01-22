@@ -63,8 +63,10 @@ export default class AddNote extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const { name } = this.state;
+    const { name, content, folder } = this.state;
     console.log(`Name: ${name.value}`);
+    console.log(`Content: ${content.value}`);
+    console.log(`Folder: ${folder.value}`);
   }
 
   render() {
