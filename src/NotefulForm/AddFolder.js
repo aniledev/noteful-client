@@ -55,7 +55,11 @@ export default class AddFolder extends Component {
           <ValidationError message={folderNameError} />
         )}
 
-        <button type="submit" className="name-button">
+        <button
+          type="submit"
+          className="name-button"
+          disabled={this.validateFolderName()}
+        >
           Add Folder
         </button>
       </form>
