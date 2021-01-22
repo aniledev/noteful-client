@@ -15,7 +15,7 @@ export default class AddNote extends Component {
         value: "",
         changed: false
       },
-      folder: {
+      folderId: {
         value: "",
         changed: false
       }
@@ -35,9 +35,9 @@ export default class AddNote extends Component {
     });
   }
 
-  updateFolderName(folder) {
+  updateFolderName(folderId) {
     this.setState({
-      folder: { value: folder, changed: true }
+      folderId: { value: folderId, changed: true }
     });
   }
 
@@ -59,19 +59,19 @@ export default class AddNote extends Component {
   }
 
   validateFolderName() {
-    const folder = this.state.folder.value.trim();
-    if (folder.length === 0) {
+    const folderId = this.state.folderId.value.trim();
+    if (folderId.length === 0) {
       return "A folder must be selected.";
     }
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    const { name, content, folder } = this.state;
+    const { name, content, folderId } = this.state;
     const { folders = [], notes = [] } = this.context;
     console.log(`Name: ${name.value}`);
     console.log(`Content: ${content.value}`);
-    console.log(`Folder: ${folder.value}`);
+    console.log(`Folder: ${folderId.value}`);
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -79,7 +79,7 @@ export default class AddNote extends Component {
     const JSONBody = JSON.stringify({
       name: name.value,
       content: content.value,
-      folder: folder.value
+      folderId: folderId.value
     });
 
     const options = {
@@ -150,7 +150,7 @@ export default class AddNote extends Component {
             {options}
           </select>
         </div>
-        {this.state.folder.changed && (
+        {this.state.folderId.changed && (
           <ValidationError message={folderNameError} />
         )}
 
