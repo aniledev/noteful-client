@@ -15,7 +15,7 @@ export default class AddFolder extends Component {
 
   updateFolderName(name) {
     this.setState({
-      name: { value: name }
+      name: { value: name, changed: true }
     });
   }
 
@@ -41,7 +41,7 @@ export default class AddFolder extends Component {
       <form className="AddFolder" onSubmit={e => this.handleSubmit(e)}>
         <h2>Add a new folder</h2>
         <div className="form-group">
-          <label>Folder Name *</label>
+          <label>Folder Name</label>
           <input
             type="text"
             className="name-input"
@@ -50,14 +50,14 @@ export default class AddFolder extends Component {
             defaultValue="New Folder"
             onChange={e => this.updateFolderName(e.target.value)}
           />
-          {this.state.name.changed && (
-            <ValidationError message={folderNameError} />
-          )}
         </div>
+        {this.state.name.changed && (
+          <ValidationError message={folderNameError} />
+        )}
+
         <button type="submit" className="name-button">
           Add Folder
         </button>
-        <div className="input-hint">* required field</div>
       </form>
     );
   }
