@@ -79,9 +79,13 @@ export default class AddNote extends Component {
         <button
           type="submit"
           className="name-button"
-          disabled={this.validateFolderName()}
+          disabled={
+            this.validateNoteName() ||
+            this.validateNoteContent() ||
+            this.validateFolderName()
+          }
         >
-          Add Folder
+          Add Note
         </button>
       </form>
     );
