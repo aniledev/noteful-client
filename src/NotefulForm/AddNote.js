@@ -73,7 +73,8 @@ export default class AddNote extends Component {
     const noteNameError = this.validateNoteName();
     const noteContentError = this.validateNoteContent();
     const folderNameError = this.validateFolderName();
-    const options = this.props.store.folders.map(folder => (
+    const { folders } = this.props;
+    const options = folders.map(folder => (
       <option value={folder.name}>{folder.name}</option>
     ));
 
@@ -141,4 +142,8 @@ export default class AddNote extends Component {
       </form>
     );
   }
+}
+
+AddNote.defaultProps ={
+  folders: [],
 }
