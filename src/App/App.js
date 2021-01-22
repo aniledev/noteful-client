@@ -21,24 +21,23 @@ class App extends Component {
 
   componentDidMount() {
     Promise.all([
-        fetch(`${config.API_ENDPOINT}/notes`),
-        fetch(`${config.API_ENDPOINT}/folders`)
+      fetch(`${config.API_ENDPOINT}/notes`),
+      fetch(`${config.API_ENDPOINT}/folders`)
     ])
-        .then(([notesRes, foldersRes]) => {
-            if (!notesRes.ok)
-                return notesRes.json().then(e => Promise.reject(e));
-            if (!foldersRes.ok)
-                return foldersRes.json().then(e => Promise.reject(e));
+      .then(([notesRes, foldersRes]) => {
+        if (!notesRes.ok) return notesRes.json().then(e => Promise.reject(e));
+        if (!foldersRes.ok)
+          return foldersRes.json().then(e => Promise.reject(e));
 
-            return Promise.all([notesRes.json(), foldersRes.json()]);
-        })
-        .then(([notes, folders]) => {
-            this.setState({notes, folders});
-        })
-        .catch(error => {
-            console.error({error});
-        });
-}
+        return Promise.all([notesRes.json(), foldersRes.json()]);
+      })
+      .then(([notes, folders]) => {
+        this.setState({ notes, folders });
+      })
+      .catch(error => {
+        console.error({ error });
+      });
+  }
 
   handleDeleteNote = noteId => {
     this.setState({
@@ -112,16 +111,25 @@ class App extends Component {
   }
 
   render() {
+    const value = {
+      notes: this.state.notes,
+      folders: this.state.folders,
+      deleteNote: this.handleDeleteNote
+    };
+
     return (
-      <div className="App">
-        <nav className="App__nav">{this.renderNavRoutes()}</nav>
-        <header className="App__header">
-          <h1>
-            <Link to="/">Noteful</Link> <FontAwesomeIcon icon="check-double" />
-          </h1>
-        </header>
-        <main className="App__main">{this.renderMainRoutes()}</main>
-      </div>
+      <apiContext.Provider value={value}>
+        <div className="App">
+          <nav className="App__nav">{this.renderNavRoutes()}</nav>
+          <header className="App__header">
+            <h1>
+              <Link to="/">Noteful</Link>{" "}
+              <FontAwesomeIcon icon="check-double" />
+            </h1>
+          </header>
+          <main className="App__main">{this.renderMainRoutes()}</main>
+        </div>
+      </apiContext.Provider>
     );
   }
 }
