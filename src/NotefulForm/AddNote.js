@@ -49,6 +49,7 @@ export default class AddNote extends Component {
       return "Note name must be at least 3 characters.";
     }
   }
+  
   validateNoteContent() {
     const content = this.state.content.value.trim();
     if (content.length === 0) {

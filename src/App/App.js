@@ -12,6 +12,7 @@ import { getNotesForFolder, findNote, findFolder } from "../notes-helpers";
 import "./App.css";
 import apiContext from "../apiContext";
 import config from "../config";
+import ErrorBoundary from "../ErrorBoundary";
 
 class App extends Component {
   state = {
@@ -35,7 +36,7 @@ class App extends Component {
         this.setState({ notes, folders });
       })
       .catch(error => {
-        alert({ error });
+        console.log(error);
       });
   }
 
@@ -48,12 +49,14 @@ class App extends Component {
   renderNavRoutes() {
     return (
       <>
-        {["/", "/folder/:folderId"].map(path => (
-          <Route exact key={path} path={path} component={NoteListNav} />
-        ))}
-        <Route path="/note/:noteId" component={NotePageNav} />
-        <Route path="/add-folder" component={NotePageNav} />
-        <Route path="/add-note" component={NotePageNav} />
+        <ErrorBoundary>
+          {["/", "/folder/:folderId"].map(path => (
+            <Route exact key={path} path={path} component={NoteListNav} />
+          ))}
+          <Route path="/note/:noteId" component={NotePageNav} />
+          <Route path="/add-folder" component={NotePageNav} />
+          <Route path="/add-note" component={NotePageNav} />
+        </ErrorBoundary>
       </>
     );
   }
@@ -63,17 +66,21 @@ class App extends Component {
 
     return (
       <>
-        {["/", "/folder/:folderId"].map(path => (
-          <Route exact key={path} path={path} component={NoteListMain} />
-        ))}
-        <Route path="/note/:noteId" component={NotePageMain} />
-        <Route exact path="/add-folder" component={AddFolder} />
-        <Route
-          exact
-          path="/add-note"
-          component={AddNote}
-          folder={this.state.folders}
-        />
+        <ErrorBoundary>
+          {["/", "/folder/:folderId"].map(path => (
+            <Route exact key={path} path={path} component={NoteListMain} />
+          ))}
+          <Route path="/note/:noteId" component={NotePageMain} />
+
+          <Route exact path="/add-folder" component={AddFolder} />
+
+          <Route
+            exact
+            path="/add-note"
+            component={AddNote}
+            folder={this.state.folders}
+          />
+        </ErrorBoundary>
       </>
     );
   }
