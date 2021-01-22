@@ -73,6 +73,9 @@ export default class AddNote extends Component {
     const noteNameError = this.validateNoteName();
     const noteContentError = this.validateNoteContent();
     const folderNameError = this.validateFolderName();
+    const options = this.props.store.folders.map(folder => (
+      <option value={folder.name}>{folder.name}</option>
+    ));
 
     return (
       <form className="AddNote" onSubmit={e => this.handleSubmit(e)}>
@@ -108,7 +111,7 @@ export default class AddNote extends Component {
         )}
         <div className="form-group">
           <label htmlFor="folder">Select A Folder</label>
-          <input
+          <select
             type="text"
             className="folder-input"
             name="folder"
@@ -116,7 +119,9 @@ export default class AddNote extends Component {
             defaultValue="Folder Name"
             required
             onChange={e => this.updateFolderName(e.target.value)}
-          />
+          >
+            {options}
+          </select>
         </div>
         {this.state.folder.changed && (
           <ValidationError message={folderNameError} />

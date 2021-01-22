@@ -76,7 +76,13 @@ class App extends Component {
           }}
         />
         <Route path="/add-folder" component={AddFolder} />
-        <Route path="/add-note" component={AddNote} />
+        <Route
+          path="/add-note"
+          render={() => {
+            const store = dummyStore;
+            return <AddNote store={store} />;
+          }}
+        />
       </>
     );
   }
