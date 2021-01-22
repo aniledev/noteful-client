@@ -42,7 +42,7 @@ export default class Note extends React.Component {
         <h2 className="Note__title">
           <Link to={`/note/${this.props.id}`}>{this.props.name}</Link>
         </h2>
-        <button className="Note__delete" type="button">
+        <button className="Note__delete" type="button" onClick={this.handleClickDelete}>
           <FontAwesomeIcon icon="trash-alt" /> remove
         </button>
         <div className="Note__dates">
