@@ -17,9 +17,15 @@ export default class AddFolder extends Component {
     });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    const { name } = this.state;
+    console.log("Name: ", name.value);
+  }
+
   render() {
     return (
-      <form className="AddFolder" action="#">
+      <form className="AddFolder" onSubmit={e => this.handleSubmit(e)}>
         <h2>Add a new folder</h2>
         <div className="form-group">
           <label>Folder Name *</label>
