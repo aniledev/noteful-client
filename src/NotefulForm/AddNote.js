@@ -9,6 +9,14 @@ export default class AddNote extends Component {
       name: {
         value: "",
         changed: false
+      },
+      content: {
+        value: "",
+        changed: false
+      },
+      folder: {
+        value: "",
+        changed: false
       }
     };
   }
