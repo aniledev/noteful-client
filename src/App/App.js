@@ -10,6 +10,8 @@ import AddNote from "../NotefulForm/AddNote";
 import dummyStore from "../dummy-store";
 import { getNotesForFolder, findNote, findFolder } from "../notes-helpers";
 import "./App.css";
+import apiContext from "../apiContext";
+import config from "../config";
 
 class App extends Component {
   state = {
@@ -22,6 +24,8 @@ class App extends Component {
     setTimeout(() => this.setState(dummyStore), 600);
   }
 
+
+    
   renderNavRoutes() {
     const { notes, folders } = this.state;
     return (
