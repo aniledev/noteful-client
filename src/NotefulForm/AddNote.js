@@ -21,9 +21,21 @@ export default class AddNote extends Component {
     };
   }
 
-  updateNoteName(name) {}
-  updateNoteContent(content) {}
-  updateFolderName(folder) {}
+  updateNoteName(name) {
+    this.setState({
+      name: { value: name, changed: true }
+    });
+  }
+  updateNoteContent(content) {
+    this.setState({
+      name: { value: content, changed: true }
+    });
+  }
+  updateFolderName(folder) {
+    this.setState({
+      name: { value: folder, changed: true }
+    });
+  }
 
   validateNoteName() {}
   validateNoteContent() {}
