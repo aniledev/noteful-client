@@ -37,9 +37,25 @@ export default class AddNote extends Component {
     });
   }
 
-  validateNoteName() {}
-  validateNoteContent() {}
-  validateFolderName() {}
+  validateNoteName() {
+    const name = this.state.name.value.trim();
+    if (name.length === 0) {
+      return "Note name is required.";
+    } else if (name.length < 3){
+      return "Note name must be at least 3 characters."
+    }
+  }
+  validateNoteContent() {
+    const content = this.state.content.value.trim();
+    if (content.length === 0) {
+      return "Note content is required.";
+    } else if (content.length < 3){
+      return "Note content must be at least 3 characters."
+    }
+  }
+  validateFolderName() {
+    const folder = this.state.folder.value.trim();
+  }
 
   handleSubmit(event) {
     event.preventDefault();
