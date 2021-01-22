@@ -37,25 +37,29 @@ export default class AddFolder extends Component {
     const { folders = [], notes = [] } = this.context;
     console.log(`Name: ${name.value}`);
 
-    var myHeaders = new Headers();
+    const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({ name: name.value });
+    const JSONBody = JSON.stringify({ name: name.value });
 
-    var requestOptions = {
+    const options = {
       method: "POST",
       headers: myHeaders,
-      body: raw,
+      body: JSONBody,
       redirect: "follow"
     };
 
-    fetch("http://localhost:9090/folders", requestOptions)
-      .then(response => {
-        if (!response.redirected) {
-          window.location.href = "http://localhost:3000/";
+    fetch("http://localhost:9091/folders", options)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Something went wrong. Try again later.");
+        } else if (res.ok) {
+          if (!res.redirected) {
+            window.location.href = "http://localhost:3000/";
+          }
         }
       })
-      .catch(error => console.log("error", error));
+      .catch(error => alert(error.message));
   }
 
   render() {
