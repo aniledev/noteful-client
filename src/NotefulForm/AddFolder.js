@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./AddFolder.css";
+import ValidationError from "../ValidationError";
 
 export default class AddFolder extends Component {
   constructor(props) {
