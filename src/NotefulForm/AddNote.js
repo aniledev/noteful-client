@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./AddNote.css";
 import ValidationError from "../ValidationError";
 import apiContext from "../apiContext";
@@ -49,7 +50,7 @@ export default class AddNote extends Component {
       return "Note name must be at least 3 characters.";
     }
   }
-  
+
   validateNoteContent() {
     const content = this.state.content.value.trim();
     if (content.length === 0) {
@@ -177,3 +178,12 @@ export default class AddNote extends Component {
     );
   }
 }
+
+AddNote.propTypes = {
+  // define prop types here
+  folder: PropTypes.array.isRequired
+};
+
+AddNote.defaultProps = {
+  folder: []
+};

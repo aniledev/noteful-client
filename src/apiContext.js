@@ -10,3 +10,4 @@ export default React.createContext({
   addNote: () => {},
   deleteNote: () => {}
 });
+
