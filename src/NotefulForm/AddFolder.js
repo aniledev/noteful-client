@@ -17,6 +17,17 @@ export default class AddFolder extends Component {
     });
   }
 
+  validateFolderName() {
+    const name = this.state.name.value.trim();
+
+    if (name.length === 0) {
+      return "A folder name is required.";
+    }
+    else if (name.length < 3) {
+      return "Folder name must be at least 3 characters long.";
+    }
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     const { name } = this.state;
