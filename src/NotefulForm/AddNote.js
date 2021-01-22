@@ -35,7 +35,7 @@ export default class AddNote extends Component {
     });
   }
 
-  updateFolderName(folderId) {
+  updateFolderId(folderId) {
     this.setState({
       folderId: { value: folderId, changed: true }
     });
@@ -58,7 +58,7 @@ export default class AddNote extends Component {
     }
   }
 
-  validateFolderName() {
+  validateFolderId() {
     const folderId = this.state.folderId.value.trim();
     if (folderId.length === 0) {
       return "A folder must be selected.";
@@ -90,16 +90,23 @@ export default class AddNote extends Component {
     };
 
     fetch("http://localhost:9090/notes", options)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log("error", error));
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Something went wrong. Try again later.");
+        } else if (res.ok) {
+          if (!res.redirected) {
+            window.location.href = "http://localhost:3000/";
+          }
+        }
+      })
+      .catch(error => alert(error.message));
   }
 
   render() {
     const { folders = [], notes = [] } = this.context;
     const noteNameError = this.validateNoteName();
     const noteContentError = this.validateNoteContent();
-    const folderNameError = this.validateFolderName();
+    const folderNameError = this.validateFolderId();
     const options = folders.map(folder => (
       <option value={folder.id}>{folder.name}</option>
     ));
@@ -145,7 +152,7 @@ export default class AddNote extends Component {
             id="folder"
             defaultValue="Folder Name"
             required
-            onChange={e => this.updateFolderName(e.target.value)}
+            onChange={e => this.updateFolderId(e.target.value)}
           >
             {options}
           </select>
@@ -160,7 +167,7 @@ export default class AddNote extends Component {
           disabled={
             this.validateNoteName() ||
             this.validateNoteContent() ||
-            this.validateFolderName()
+            this.validateFolderId()
           }
         >
           Add Note
