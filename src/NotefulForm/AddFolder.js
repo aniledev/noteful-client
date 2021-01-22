@@ -11,6 +11,12 @@ export default class AddFolder extends Component {
     };
   }
 
+  updateFolderName(name) {
+    this.setState({
+      name: { value: name }
+    });
+  }
+
   render() {
     return (
       <form className="AddFolder" action="#">
