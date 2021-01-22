@@ -20,7 +20,7 @@ export default class AddFolder extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { name } = this.state;
-    console.log("Name: ", name.value);
+    console.log(`Name: ${name.value}`);
   }
 
   render() {
