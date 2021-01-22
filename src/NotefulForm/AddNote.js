@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./AddNote.css";
 import ValidationError from "../ValidationError";
+import apiContext from "../apiContext";
 
 export default class AddNote extends Component {
   constructor(props) {
@@ -20,6 +21,8 @@ export default class AddNote extends Component {
       }
     };
   }
+
+  static contextType = apiContext;
 
   updateNoteName(name) {
     this.setState({
@@ -70,10 +73,10 @@ export default class AddNote extends Component {
   }
 
   render() {
+    const { folders = [], notes = [] } = this.context;
     const noteNameError = this.validateNoteName();
     const noteContentError = this.validateNoteContent();
     const folderNameError = this.validateFolderName();
-    const { folders } = this.props;
     const options = folders.map(folder => (
       <option value={folder.name}>{folder.name}</option>
     ));
@@ -142,8 +145,4 @@ export default class AddNote extends Component {
       </form>
     );
   }
-}
-
-AddNote.defaultProps ={
-  folders: [],
 }

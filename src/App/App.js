@@ -59,15 +59,21 @@ class App extends Component {
   }
 
   renderMainRoutes() {
-    const { notes, folders } = this.state;
+    const { notes, folders } = this.state.folders;
+
     return (
       <>
         {["/", "/folder/:folderId"].map(path => (
           <Route exact key={path} path={path} component={NoteListMain} />
         ))}
         <Route path="/note/:noteId" component={NotePageMain} />
-        <Route path="/add-folder" component={AddFolder} />
-        <Route path="/add-note" component={AddNote} folders={folders} />
+        <Route exact path="/add-folder" component={AddFolder} />
+        <Route
+          exact
+          path="/add-note"
+          component={AddNote}
+          folder={this.state.folders}
+        />
       </>
     );
   }
