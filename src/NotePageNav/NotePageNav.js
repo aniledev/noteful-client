@@ -22,6 +22,7 @@ export default function NotePageNav(props) {
         </h3>
       )}
     </div>
+    
   )
 }
 

@@ -1,36 +1,36 @@
-.Noteful-form {
+.AddFolder {
   background-color: #1d3656;
   color: #dedede;
   padding: 16px;
   max-width: 332px;
 }
 
-.Noteful-form label {
+.AddFolder label {
   display: block;
   font-size: 16px;
   padding-bottom: 8px;
 }
 
-.Noteful-form input,
-.Noteful-form textarea,
-.Noteful-form select {
+.AddFolder input,
+.AddFolder textarea,
+.AddFolder select {
   font-size: 14px;
   padding: 8px;
   width: 300px;
 }
 
-.Noteful-form select {
+.AddFolder select {
   height: 33px;
 }
 
-.Noteful-form > .field {
+.AddFolder > .field {
   margin-bottom: 16px;
 }
-.Noteful-form > .buttons {
+.AddFolder > .buttons {
   margin-top: 26px;
 }
 
-.Noteful-form button {
+.AddFolder button {
   background-color: #010d1e;
   border-radius: 4px;
   border: 0;
@@ -42,7 +42,7 @@
   text-align: center;
   text-decoration: none;
 }
-.Noteful-form button[type="submit"]:hover {
+.AddFolder button[type="submit"]:hover {
   background-color: #29862e;
   color: white;
 }
