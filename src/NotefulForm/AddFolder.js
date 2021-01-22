@@ -4,14 +4,17 @@ import "./AddFolder.css";
 export default class AddFolder extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      name: {
+        value: ""
+      }
+    };
   }
 
   render() {
     return (
       <form className="AddFolder" action="#">
         <h2>Add a new folder</h2>
-
         <div className="form-group">
           <label>Folder Name *</label>
           <input
