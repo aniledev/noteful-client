@@ -85,18 +85,21 @@ export default class AddNote extends Component {
             name="name"
             id="name"
             defaultValue="New Note"
+            required
             onChange={e => this.updateNoteName(e.target.value)}
           />
         </div>
         {this.state.name.changed && <ValidationError message={noteNameError} />}
         <div className="form-group">
           <label htmlFor="content">Note Content</label>
-          <input
+          <textarea
             type="text"
             className="content-input"
             name="content"
             id="content"
+            minlength="3"
             defaultValue="Note Content"
+            required
             onChange={e => this.updateNoteContent(e.target.value)}
           />
         </div>
@@ -111,6 +114,7 @@ export default class AddNote extends Component {
             name="folder"
             id="folder"
             defaultValue="Folder Name"
+            required
             onChange={e => this.updateFolderName(e.target.value)}
           />
         </div>
