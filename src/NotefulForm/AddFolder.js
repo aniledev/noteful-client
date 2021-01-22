@@ -10,17 +10,21 @@ export default function AddFolder(props) {
       {...otherProps}
     >
       <h2>Add a new folder</h2>
-      <div className="input_hint">* required field</div>
+
       <div className="form-group">
         <label>Folder Name *</label>
         <input
           type="text"
-          className="name_input"
+          className="name-input"
           name="name"
           id="name"
           defaultValue="New Folder"
         />
       </div>
+      <button type="submit" className="name-button">
+        Add Folder
+      </button>
+      <div className="input-hint">* required field</div>
     </form>
   );
 }
