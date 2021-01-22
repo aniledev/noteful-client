@@ -49,7 +49,7 @@ export default class AddFolder extends Component {
       redirect: "follow"
     };
 
-    fetch("http://localhost:9091/folders", options)
+    fetch("http://localhost:9090/folders", options)
       .then(res => {
         if (!res.ok) {
           throw new Error("Something went wrong. Try again later.");
