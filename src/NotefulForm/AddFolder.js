@@ -6,7 +6,8 @@ export default class AddFolder extends Component {
     super(props);
     this.state = {
       name: {
-        value: ""
+        value: "",
+        changed: false
       }
     };
   }
@@ -48,6 +49,9 @@ export default class AddFolder extends Component {
             defaultValue="New Folder"
             onChange={e => this.updateFolderName(e.target.value)}
           />
+          {this.state.name.changed && (
+            <ValidationError message={folderNameError} />
+          )}
         </div>
         <button type="submit" className="name-button">
           Add Folder
