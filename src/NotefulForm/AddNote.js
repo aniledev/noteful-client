@@ -41,20 +41,24 @@ export default class AddNote extends Component {
     const name = this.state.name.value.trim();
     if (name.length === 0) {
       return "Note name is required.";
-    } else if (name.length < 3){
-      return "Note name must be at least 3 characters."
+    } else if (name.length < 3) {
+      return "Note name must be at least 3 characters.";
     }
   }
   validateNoteContent() {
     const content = this.state.content.value.trim();
     if (content.length === 0) {
       return "Note content is required.";
-    } else if (content.length < 3){
-      return "Note content must be at least 3 characters."
+    } else if (content.length < 3) {
+      return "Note content must be at least 3 characters.";
     }
   }
+
   validateFolderName() {
     const folder = this.state.folder.value.trim();
+    if (folder.length === 0) {
+      return "A folder must be selected.";
+    }
   }
 
   handleSubmit(event) {
@@ -94,7 +98,7 @@ export default class AddNote extends Component {
             onChange={e => this.updateNoteContent(e.target.value)}
           />
         </div>
-        {this.state.name.changed && (
+        {this.state.content.changed && (
           <ValidationError message={noteContentError} />
         )}
         <div className="form-group">
@@ -108,7 +112,7 @@ export default class AddNote extends Component {
             onChange={e => this.updateFolderName(e.target.value)}
           />
         </div>
-        {this.state.name.changed && (
+        {this.state.folder.changed && (
           <ValidationError message={folderNameError} />
         )}
 
