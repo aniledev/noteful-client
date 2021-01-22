@@ -28,12 +28,12 @@ export default class AddNote extends Component {
   }
   updateNoteContent(content) {
     this.setState({
-      name: { value: content, changed: true }
+      content: { value: content, changed: true }
     });
   }
   updateFolderName(folder) {
     this.setState({
-      name: { value: folder, changed: true }
+      folder: { value: folder, changed: true }
     });
   }
 
