@@ -34,7 +34,6 @@ export default class AddFolder extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { name } = this.state;
-    const { folders = [], notes = [] } = this.context;
     console.log(`Name: ${name.value}`);
 
     const myHeaders = new Headers();
