@@ -104,7 +104,7 @@ export default class AddNote extends Component {
   }
 
   render() {
-    const { folders = []} = this.context;
+    const { folders = [] } = this.context;
     const noteNameError = this.validateNoteName();
     const noteContentError = this.validateNoteContent();
     const folderNameError = this.validateFolderId();
@@ -122,7 +122,7 @@ export default class AddNote extends Component {
             className="name-input"
             name="name"
             id="name"
-            defaultValue="New Note"
+            placeholder="New Note"
             required
             onChange={e => this.updateNoteName(e.target.value)}
           />
@@ -136,7 +136,7 @@ export default class AddNote extends Component {
             name="content"
             id="content"
             minlength="3"
-            defaultValue="Note Content"
+            placeholder="Note Content"
             required
             onChange={e => this.updateNoteContent(e.target.value)}
           />
@@ -151,7 +151,7 @@ export default class AddNote extends Component {
             className="folder-input"
             name="folder"
             id="folder"
-            defaultValue="Folder Name"
+            placeholder="Folder Name"
             required
             onChange={e => this.updateFolderId(e.target.value)}
           >
