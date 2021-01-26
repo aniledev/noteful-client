@@ -104,16 +104,29 @@ export default class AddNote extends Component {
       redirect: "follow"
     };
 
+  
+
     fetch("http://localhost:9090/notes", options)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error("Something went wrong. Try again later.");
-        } else if (res.ok) {
-          if (!res.redirected) {
-            window.location.href = "http://localhost:3000/";
-          }
+      .then(response => {
+        if (!response.ok) {
+          return response.json().then(event => Promise.reject(event));
+        } else {
+          return response.json();
         }
       })
+      .then(responseJson => {
+        this.context.handleAddNote(responseJson);
+        this.props.history.goBack();
+      })
+      // .then(res => {
+      //   if (!res.ok) {
+      //     throw new Error("Something went wrong. Try again later.");
+      //   } else if (res.ok) {
+      //     if (!res.redirected) {
+      //       window.location.href = "http://localhost:3000/";
+      //     }
+      //   }
+      // })
       .catch(error => alert(error.message));
   }
 

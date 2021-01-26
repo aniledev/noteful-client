@@ -38,6 +38,10 @@ class App extends Component {
       });
   }
 
+  handleAddNote = note => {
+    this.setState({ notes: [...this.state.notes, note] });
+  };
+
   handleDeleteNote = noteId => {
     this.setState({
       notes: this.state.notes.filter(note => note.id !== noteId)
@@ -60,7 +64,6 @@ class App extends Component {
   }
 
   renderMainRoutes() {
-
     return (
       <>
         <ErrorBoundary>
@@ -86,7 +89,8 @@ class App extends Component {
     const value = {
       notes: this.state.notes,
       folders: this.state.folders,
-      deleteNote: this.handleDeleteNote
+      deleteNote: this.handleDeleteNote,
+      handleAddNote: this.handleAddNote
     };
 
     return (
@@ -107,4 +111,3 @@ class App extends Component {
 }
 
 export default App;
-

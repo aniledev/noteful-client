@@ -8,6 +8,7 @@ export default React.createContext({
   // empty update functions
   addFolder: () => {},
   addNote: () => {},
-  deleteNote: () => {}
+  deleteNote: () => {},
+  handleAddNote: () => {},
+  addNoteHandle: () => {}
 });
-
