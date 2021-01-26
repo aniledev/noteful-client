@@ -70,7 +70,6 @@ export default class AddNote extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { name, content, folderId } = this.state;
-    const { folders = [], notes = [] } = this.context;
     console.log(`Name: ${name.value}`);
     console.log(`Content: ${content.value}`);
     console.log(`Folder: ${folderId.value}`);
@@ -105,7 +104,7 @@ export default class AddNote extends Component {
   }
 
   render() {
-    const { folders = [], notes = [] } = this.context;
+    const { folders = [] } = this.context;
     const noteNameError = this.validateNoteName();
     const noteContentError = this.validateNoteContent();
     const folderNameError = this.validateFolderId();
