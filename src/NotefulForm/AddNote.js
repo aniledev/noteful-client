@@ -104,7 +104,7 @@ export default class AddNote extends Component {
   }
 
   render() {
-    const { folders = [] } = this.context;
+    const { folders = []} = this.context;
     const noteNameError = this.validateNoteName();
     const noteContentError = this.validateNoteContent();
     const folderNameError = this.validateFolderId();
