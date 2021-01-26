@@ -61,15 +61,6 @@ export default class AddFolder extends Component {
         this.setState({ folderName: "" });
         this.props.history.goBack();
       })
-      // .then(res => {
-      //   if (!res.ok) {
-      //     throw new Error("Something went wrong. Try again later.");
-      //   } else if (res.ok) {
-      //     if (!res.redirected) {
-      //       window.location.href = "http://localhost:3000/";
-      //     }
-      //   }
-      // })
       .catch(error => alert("Something went wrong"));
   }
 
