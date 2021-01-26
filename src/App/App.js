@@ -7,8 +7,6 @@ import NoteListMain from "../NoteListMain/NoteListMain";
 import NotePageMain from "../NotePageMain/NotePageMain";
 import AddFolder from "../NotefulForm/AddFolder";
 import AddNote from "../NotefulForm/AddNote";
-import dummyStore from "../dummy-store";
-import { getNotesForFolder, findNote, findFolder } from "../notes-helpers";
 import "./App.css";
 import apiContext from "../apiContext";
 import config from "../config";
@@ -62,7 +60,6 @@ class App extends Component {
   }
 
   renderMainRoutes() {
-    const { notes, folders } = this.state.folders;
 
     return (
       <>
