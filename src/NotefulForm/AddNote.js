@@ -26,6 +26,10 @@ export default class AddNote extends Component {
     };
   }
 
+  static defaultProps = {
+    history: { goBack: () => {} }
+  };
+
   static contextType = apiContext;
 
   componentDidMount() {

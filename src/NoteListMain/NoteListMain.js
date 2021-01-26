@@ -9,6 +9,7 @@ import "./NoteListMain.css";
 
 export default class NoteListMain extends React.Component {
   static defaultProps = {
+    history: { goBack: () => {} },
     match: {
       params: {}
     }
