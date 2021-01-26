@@ -27,18 +27,27 @@ export default class Note extends React.Component {
         "content-type": "application/json"
       }
     })
-      .then(res => {
-        if (!res.ok) return res.json().then(e => Promise.reject(e));
-        return res.json();
+      // .then(res => {
+      //   if (!res.ok) return res.json().then(e => Promise.reject(e));
+      //   return res.json();
+      // })
+      // .then(() => {
+      //   this.context.deleteNote(noteId);
+      //   // allow parent to perform extra behaviour
+      //   this.props.onDeleteNote(noteId);
+      // })
+      // .catch(error => {
+      //   console.error({ error });
+      // });
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.status);
+        } else {
+          this.context.deleteNote(noteId);
+        }
       })
-      .then(() => {
-        this.context.deleteNote(noteId);
-        // allow parent to perform extra behaviour
-        this.props.onDeleteNote(noteId);
-      })
-      .catch(error => {
-        console.error({ error });
-      });
+      .then(() => this.props.history.goBack())
+      .catch(error => console.log(error));
   };
 
   render() {
@@ -80,7 +89,7 @@ Note.propTypes = {
   id: PropTypes.string.isRequired,
   modified: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  onDeleteNote: PropTypes.func.isRequired
+  onDeleteNote: PropTypes.func
 };
 
 Note.defaultProps = {

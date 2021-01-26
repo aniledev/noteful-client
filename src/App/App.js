@@ -95,7 +95,7 @@ class App extends Component {
       folders: this.state.folders,
       deleteNote: this.handleDeleteNote,
       handleAddNote: this.handleAddNote,
-      handleAddFolder: this.handleAddFolder
+      handleAddFolder: this.handleAddFolder,
     };
 
     return (

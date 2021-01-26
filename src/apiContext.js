@@ -10,5 +10,6 @@ export default React.createContext({
   addNote: () => {},
   deleteNote: () => {},
   handleAddNote: () => {},
-  handleAddFolder: () => {}
+  handleAddFolder: () => {},
+  handleDeleteNote: () => {}
 });
