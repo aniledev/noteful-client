@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "9226a14bc46b021cd81b",
-    "url": "/noteful-client/static/css/main.7d427d37.chunk.css"
+    "revision": "db65df34058067ff25df",
+    "url": "/noteful-client/static/css/main.0f878343.chunk.css"
   },
   {
-    "revision": "9226a14bc46b021cd81b",
-    "url": "/noteful-client/static/js/main.9226a14b.chunk.js"
+    "revision": "db65df34058067ff25df",
+    "url": "/noteful-client/static/js/main.db65df34.chunk.js"
   },
   {
-    "revision": "60bfa3003052d2bd7f01",
-    "url": "/noteful-client/static/css/1.69679089.chunk.css"
+    "revision": "dc758b69a5b659cb18f8",
+    "url": "/noteful-client/static/css/1.2bfccfee.chunk.css"
   },
   {
-    "revision": "60bfa3003052d2bd7f01",
-    "url": "/noteful-client/static/js/1.60bfa300.chunk.js"
+    "revision": "dc758b69a5b659cb18f8",
+    "url": "/noteful-client/static/js/1.dc758b69.chunk.js"
   },
   {
     "revision": "f228eefc709ad7e533d0",
@@ -28,6 +28,10 @@ self.__precacheManifest = [
     "url": "/noteful-client/static/media/roboto-latin-100.e9dbbe8a.woff"
   },
   {
+    "revision": "55536c8e9e9a532651e3cf374f290ea3",
+    "url": "/noteful-client/static/media/roboto-latin-300.55536c8e.woff2"
+  },
+  {
     "revision": "6232f43d15b0e7a0bf0fe82e295bdd06",
     "url": "/noteful-client/static/media/roboto-latin-100italic.6232f43d.woff2"
   },
@@ -36,12 +40,12 @@ self.__precacheManifest = [
     "url": "/noteful-client/static/media/roboto-latin-100italic.d704bb3d.woff"
   },
   {
-    "revision": "55536c8e9e9a532651e3cf374f290ea3",
-    "url": "/noteful-client/static/media/roboto-latin-300.55536c8e.woff2"
-  },
-  {
     "revision": "a1471d1d6431c893582a5f6a250db3f9",
     "url": "/noteful-client/static/media/roboto-latin-300.a1471d1d.woff"
+  },
+  {
+    "revision": "d69924b98acd849cdeba9fbff3f88ea6",
+    "url": "/noteful-client/static/media/roboto-latin-300italic.d69924b9.woff2"
   },
   {
     "revision": "210a7c781f5a354a0e4985656ab456d9",
@@ -52,40 +56,32 @@ self.__precacheManifest = [
     "url": "/noteful-client/static/media/roboto-latin-400.5d4aeb4e.woff2"
   },
   {
-    "revision": "d69924b98acd849cdeba9fbff3f88ea6",
-    "url": "/noteful-client/static/media/roboto-latin-300italic.d69924b9.woff2"
+    "revision": "d8bcbe724fd6f4ba44d0ee6a2675890f",
+    "url": "/noteful-client/static/media/roboto-latin-400italic.d8bcbe72.woff2"
   },
   {
     "revision": "bafb105baeb22d965c70fe52ba6b49d9",
     "url": "/noteful-client/static/media/roboto-latin-400.bafb105b.woff"
   },
   {
-    "revision": "d8bcbe724fd6f4ba44d0ee6a2675890f",
-    "url": "/noteful-client/static/media/roboto-latin-400italic.d8bcbe72.woff2"
-  },
-  {
     "revision": "9680d5a0c32d2fd084e07bbc4c8b2923",
     "url": "/noteful-client/static/media/roboto-latin-400italic.9680d5a0.woff"
-  },
-  {
-    "revision": "510dec37fa69fba39593e01a469ee018",
-    "url": "/noteful-client/static/media/roboto-latin-500italic.510dec37.woff2"
   },
   {
     "revision": "285467176f7fe6bb6a9c6873b3dad2cc",
     "url": "/noteful-client/static/media/roboto-latin-500.28546717.woff2"
   },
   {
-    "revision": "ffcc050b2d92d4b14a4fcb527ee0bcc8",
-    "url": "/noteful-client/static/media/roboto-latin-500italic.ffcc050b.woff"
-  },
-  {
     "revision": "de8b7431b74642e830af4d4f4b513ec9",
     "url": "/noteful-client/static/media/roboto-latin-500.de8b7431.woff"
   },
   {
-    "revision": "037d830416495def72b7881024c14b7b",
-    "url": "/noteful-client/static/media/roboto-latin-700.037d8304.woff2"
+    "revision": "510dec37fa69fba39593e01a469ee018",
+    "url": "/noteful-client/static/media/roboto-latin-500italic.510dec37.woff2"
+  },
+  {
+    "revision": "ffcc050b2d92d4b14a4fcb527ee0bcc8",
+    "url": "/noteful-client/static/media/roboto-latin-500italic.ffcc050b.woff"
   },
   {
     "revision": "cf6613d1adf490972c557a8e318e0868",
@@ -98,6 +94,10 @@ self.__precacheManifest = [
   {
     "revision": "19b7a0adfdd4f808b53af7e2ce2ad4e5",
     "url": "/noteful-client/static/media/roboto-latin-900.19b7a0ad.woff2"
+  },
+  {
+    "revision": "037d830416495def72b7881024c14b7b",
+    "url": "/noteful-client/static/media/roboto-latin-700.037d8304.woff2"
   },
   {
     "revision": "846d1890aee87fde5d8ced8eba360c3a",
@@ -116,7 +116,7 @@ self.__precacheManifest = [
     "url": "/noteful-client/static/media/roboto-latin-900italic.bc833e72.woff"
   },
   {
-    "revision": "b90110967feee61050720c3967e99ed0",
+    "revision": "1cf3715aa5cfa330ffeaafe78076361b",
     "url": "/noteful-client/index.html"
   }
 ];
