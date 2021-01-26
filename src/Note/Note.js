@@ -9,8 +9,12 @@ import PropTypes from "prop-types";
 
 export default class Note extends React.Component {
   static defaultProps = {
+    match: {
+      params: {}
+    },
     onDeleteNote: () => {}
   };
+
   static contextType = apiContext;
 
   handleClickDelete = e => {
@@ -38,6 +42,16 @@ export default class Note extends React.Component {
   };
 
   render() {
+    const { notes = [] } = this.context;
+    const noteId = this.props.id;
+    let note = notes.find(note => note.id === noteId) || {
+      id: noteId,
+      modified: new Date().toISOString()
+    };
+
+    let date = new Date(note.modified);
+    let dateNormalizer = format(date, "do MMM YYYY");
+
     return (
       <div className="Note">
         <h2 className="Note__title">
@@ -52,10 +66,7 @@ export default class Note extends React.Component {
         </button>
         <div className="Note__dates">
           <div className="Note__dates-modified">
-            Modified{" "}
-            <span className="Date">
-              {format(this.props.modified, "Do MMM YYYY")}
-            </span>
+            Modified <span className="Date">{dateNormalizer}</span>
           </div>
         </div>
       </div>
@@ -63,9 +74,11 @@ export default class Note extends React.Component {
   }
 }
 
+// format(this.props.modified, "Do MMM YYYY");
+
 Note.propTypes = {
   id: PropTypes.string.isRequired,
-  modified: PropTypes.isRequired,
+  modified: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onDeleteNote: PropTypes.func.isRequired
 };
@@ -73,5 +86,5 @@ Note.propTypes = {
 Note.defaultProps = {
   id: "",
   modified: "",
-  name: "",
+  name: ""
 };

@@ -19,11 +19,18 @@ export default class AddNote extends Component {
       folderId: {
         value: "",
         changed: false
+      },
+      modified: {
+        value: ""
       }
     };
   }
 
   static contextType = apiContext;
+
+  componentDidMount() {
+    this.handleModified();
+  }
 
   updateNoteName(name) {
     this.setState({
@@ -67,9 +74,15 @@ export default class AddNote extends Component {
     }
   }
 
+  handleModified = () => {
+    let today = new Date();
+    let iso = today.toISOString();
+    this.setState({ modified: iso });
+  };
+
   handleSubmit(event) {
     event.preventDefault();
-    const { name, content, folderId } = this.state;
+    const { name, content, folderId, modified } = this.state;
     console.log(`Name: ${name.value}`);
     console.log(`Content: ${content.value}`);
     console.log(`Folder: ${folderId.value}`);
@@ -80,7 +93,8 @@ export default class AddNote extends Component {
     const JSONBody = JSON.stringify({
       name: name.value,
       content: content.value,
-      folderId: folderId.value
+      folderId: folderId.value,
+      modified: modified.value
     });
 
     const options = {
