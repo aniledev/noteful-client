@@ -42,6 +42,10 @@ class App extends Component {
     this.setState({ notes: [...this.state.notes, note] });
   };
 
+  handleAddFolder = folder => {
+    this.setState({ folders: [...this.state.folders, folder] });
+  };
+
   handleDeleteNote = noteId => {
     this.setState({
       notes: this.state.notes.filter(note => note.id !== noteId)
@@ -90,7 +94,8 @@ class App extends Component {
       notes: this.state.notes,
       folders: this.state.folders,
       deleteNote: this.handleDeleteNote,
-      handleAddNote: this.handleAddNote
+      handleAddNote: this.handleAddNote,
+      handleAddFolder: this.handleAddFolder
     };
 
     return (

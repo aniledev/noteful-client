@@ -49,16 +49,28 @@ export default class AddFolder extends Component {
     };
 
     fetch("http://localhost:9090/folders", options)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error("Something went wrong. Try again later.");
-        } else if (res.ok) {
-          if (!res.redirected) {
-            window.location.href = "http://localhost:3000/";
-          }
+      .then(response => {
+        if (!response.ok) {
+          return response.json().then(event => Promise.reject(event));
+        } else {
+          return response.json();
         }
       })
-      .catch(error => alert(error.message));
+      .then(responseJson => {
+        this.context.handleAddFolder(responseJson);
+        this.setState({ folderName: "" });
+        this.props.history.goBack();
+      })
+      // .then(res => {
+      //   if (!res.ok) {
+      //     throw new Error("Something went wrong. Try again later.");
+      //   } else if (res.ok) {
+      //     if (!res.redirected) {
+      //       window.location.href = "http://localhost:3000/";
+      //     }
+      //   }
+      // })
+      .catch(error => alert("Something went wrong"));
   }
 
   render() {
