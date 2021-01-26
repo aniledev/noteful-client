@@ -32,6 +32,12 @@ export default class AddNote extends Component {
     this.handleModified();
   }
 
+  handleModified = () => {
+    let today = new Date();
+    let iso = today.toISOString();
+    this.setState({ modified: iso });
+  };
+
   updateNoteName(name) {
     this.setState({
       name: { value: name, changed: true }
@@ -74,12 +80,6 @@ export default class AddNote extends Component {
     }
   }
 
-  handleModified = () => {
-    let today = new Date();
-    let iso = today.toISOString();
-    this.setState({ modified: iso });
-  };
-
   handleSubmit(event) {
     event.preventDefault();
     const { name, content, folderId, modified } = this.state;
@@ -94,7 +94,7 @@ export default class AddNote extends Component {
       name: name.value,
       content: content.value,
       folderId: folderId.value,
-      modified: modified.value
+      modified: modified
     });
 
     const options = {
