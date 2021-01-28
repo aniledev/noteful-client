@@ -7,7 +7,7 @@ export default class AddFolder extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      folderName: {
+      name: {
         value: "",
         changed: false
       }
@@ -20,14 +20,14 @@ export default class AddFolder extends Component {
 
   static contextType = apiContext;
 
-  updateFolderName(folderName) {
+  updateFolderName(name) {
     this.setState({
-      folderName: { value: folderName, changed: true }
+      name: { value: name, changed: true }
     });
   }
 
   validateFolderName() {
-    const name = this.state.folderName.value.trim();
+    const name = this.state.name.value.trim();
     if (name.length === 0) {
       return "A folder name is required.";
     } else if (name.length < 3) {
@@ -37,8 +37,8 @@ export default class AddFolder extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const { folderName } = this.state;
-    console.log(`Name: ${folderName.value}`);
+    const { name } = this.state;
+    console.log(`Name: ${name.value}`);
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -85,7 +85,7 @@ export default class AddFolder extends Component {
             onChange={e => this.updateFolderName(e.target.value)}
           />
         </div>
-        {this.state.folderName.changed && (
+        {this.state.name.changed && (
           <ValidationError message={folderNameError} />
         )}
 
