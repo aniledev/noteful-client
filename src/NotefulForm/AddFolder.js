@@ -14,6 +14,10 @@ export default class AddFolder extends Component {
     };
   }
 
+  static defaultProps = {
+    history: { goBack: () => {} }
+  };
+
   static contextType = apiContext;
 
   updateFolderName(name) {

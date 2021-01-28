@@ -26,6 +26,10 @@ export default class AddNote extends Component {
     };
   }
 
+  static defaultProps = {
+    history: { goBack: () => {} }
+  };
+
   static contextType = apiContext;
 
   componentDidMount() {
@@ -151,7 +155,7 @@ export default class AddNote extends Component {
             className="content-input"
             name="content"
             id="content"
-            minlength="3"
+            minLength="3"
             placeholder="Note Content"
             required
             onChange={e => this.updateNoteContent(e.target.value)}
