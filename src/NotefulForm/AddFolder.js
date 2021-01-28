@@ -43,7 +43,7 @@ export default class AddFolder extends Component {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    const JSONBody = JSON.stringify({ folderName: folderName.value });
+    const JSONBody = JSON.stringify({ name: name.value });
 
     const options = {
       method: "POST",
