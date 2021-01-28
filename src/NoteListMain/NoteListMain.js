@@ -9,6 +9,7 @@ import "./NoteListMain.css";
 
 export default class NoteListMain extends React.Component {
   static defaultProps = {
+    history: { goBack: () => {} },
     match: {
       params: {}
     }
@@ -23,8 +24,13 @@ export default class NoteListMain extends React.Component {
       <section className="NoteListMain">
         <ul>
           {notesForFolder.map(note => (
-            <li key={note.id}>
-              <Note id={note.id} name={note.name} modified={note.modified} />
+            <li key={note.noteId}>
+              <Note
+                noteId={note.noteId}
+                noteName={note.noteName}
+                modified={note.modified}
+                history={this.props.history}
+              />
             </li>
           ))}
         </ul>
