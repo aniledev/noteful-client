@@ -53,6 +53,7 @@ export default class Note extends React.Component {
   render() {
     const { notes = [] } = this.context;
     const noteId = this.props.id;
+
     let note = notes.find(note => note.id === noteId) || {
       id: noteId,
       modified: new Date().toISOString()
@@ -88,7 +89,7 @@ export default class Note extends React.Component {
 Note.propTypes = {
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   // modified: PropTypes.da.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   onDeleteNote: PropTypes.func
 };
 
