@@ -53,6 +53,7 @@ export default class Note extends React.Component {
   render() {
     const { notes = [] } = this.context;
     const noteId = this.props.id;
+    console.log(notes);
 
     let note = notes.find(note => note.id === noteId) || {
       id: noteId,

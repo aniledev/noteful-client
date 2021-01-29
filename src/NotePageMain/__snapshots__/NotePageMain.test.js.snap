@@ -10,7 +10,7 @@ exports[`NotePageMain component renders a .NotePageMain by default 1`] = `
         "goBack": [Function],
       }
     }
-    id=""
+    id={NaN}
     modified=""
     name=""
     onDeleteNote={[Function]}
@@ -32,7 +32,7 @@ exports[`NotePageMain component renders a Note with note prop 1`] = `
       "goBack": [Function],
     }
   }
-  id=""
+  id={NaN}
   modified=""
   name=""
   onDeleteNote={[Function]}
