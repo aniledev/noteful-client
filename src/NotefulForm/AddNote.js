@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "./AddNote.css";
 import ValidationError from "../ValidationError";
 import apiContext from "../apiContext";
+import config from "../config";
 
 export default class AddNote extends Component {
   constructor(props) {
