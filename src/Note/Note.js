@@ -86,7 +86,7 @@ export default class Note extends React.Component {
 // format(this.props.modified, "Do MMM YYYY");
 
 Note.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   modified: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onDeleteNote: PropTypes.func
