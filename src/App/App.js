@@ -20,8 +20,8 @@ class App extends Component {
 
   componentDidMount() {
     Promise.all([
-      fetch(`${config.PORT_URL}/notes`),
-      fetch(`${config.PORT_URL}/folders`)
+      fetch(`${config.PORT_URL}/api/notes`),
+      fetch(`${config.PORT_URL}/api/folders`)
     ])
       .then(([notesRes, foldersRes]) => {
         if (!notesRes.ok) return notesRes.json().then(e => Promise.reject(e));

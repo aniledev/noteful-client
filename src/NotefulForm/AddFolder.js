@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./AddFolder.css";
 import ValidationError from "../ValidationError";
 import apiContext from "../apiContext";
+import config from "../config";
 
 export default class AddFolder extends Component {
   constructor(props) {
@@ -52,7 +53,7 @@ export default class AddFolder extends Component {
       redirect: "follow"
     };
 
-    fetch("http://localhost:9090/folders", options)
+    fetch(`${config.PORT_URL}/api/folders`, options)
       .then(response => {
         if (!response.ok) {
           return response.json().then(event => Promise.reject(event));

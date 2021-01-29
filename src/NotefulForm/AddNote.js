@@ -108,7 +108,7 @@ export default class AddNote extends Component {
       redirect: "follow"
     };
 
-    fetch("http://localhost:9090/notes", options)
+    fetch(`${config.PORT_URL}/api/notes`, options)
       .then(response => {
         if (!response.ok) {
           return response.json().then(event => Promise.reject(event));
