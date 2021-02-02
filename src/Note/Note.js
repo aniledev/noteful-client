@@ -46,7 +46,7 @@ export default class Note extends React.Component {
           this.context.deleteNote(noteId);
         }
       })
-      .then(() => this.props.history.goBack())
+      .then(() => this.props.history.push('/'))
       .catch(error => console.log(error));
   };
 
