@@ -46,14 +46,13 @@ export default class Note extends React.Component {
           this.context.deleteNote(noteId);
         }
       })
-      .then(() => this.props.history.push('/'))
+      .then(() => this.props.history.push("/"))
       .catch(error => console.log(error));
   };
 
   render() {
     const { notes = [] } = this.context;
     const noteId = this.props.id;
-    console.log(notes);
 
     let note = notes.find(note => note.id === noteId) || {
       id: noteId,

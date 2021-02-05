@@ -88,9 +88,6 @@ export default class AddNote extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { name, content, folderId, modified } = this.state;
-    console.log(`Name: ${name.value}`);
-    console.log(`Content: ${content.value}`);
-    console.log(`Folder: ${folderId.value}`);
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");

@@ -39,7 +39,6 @@ export default class AddFolder extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { name } = this.state;
-    console.log(`Name: ${name.value}`);
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
