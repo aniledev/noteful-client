@@ -127,8 +127,16 @@ export default class AddNote extends Component {
     const noteContentError = this.validateNoteContent();
     const folderNameError = this.validateFolderId();
     const options = folders.map(folder => (
-      <option value={folder.id}>{folder.name}</option>
+      <option key={folder.id} value={folder.id}>
+        {folder.name}
+      </option>
     ));
+
+    // const firstFolder = folders[0];
+    // const defaultFolder = Object.values(firstFolder)[0];
+
+    // console.log(firstFolder);
+    // console.log(defaultFolder);
 
     return (
       <form className="AddNote" onSubmit={e => this.handleSubmit(e)}>
@@ -172,6 +180,7 @@ export default class AddNote extends Component {
             placeholder="Folder Name"
             required
             onChange={e => this.updateFolderId(e.target.value)}
+            defaultValue="oranges"
           >
             {options}
           </select>
