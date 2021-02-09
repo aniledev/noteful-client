@@ -35,12 +35,23 @@ export default class AddNote extends Component {
 
   componentDidMount() {
     this.handleModified();
+    this.handleDefaultFolder();
   }
 
   handleModified = () => {
     let today = new Date();
     let iso = today.toISOString();
     this.setState({ modified: iso });
+  };
+
+  handleDefaultFolder = () => {
+    const { folders = [] } = this.context;
+    const firstFolderObject = folders[0];
+    const defaultFolderArray = Object.values(firstFolderObject);
+    const defaultFolderId = defaultFolderArray[0];
+    this.setState({
+      folderId: { value: defaultFolderId, changed: false }
+    });
   };
 
   updateNoteName(name) {
@@ -79,7 +90,7 @@ export default class AddNote extends Component {
   }
 
   validateFolderId() {
-    const folderId = this.state.folderId.value.trim();
+    const folderId = this.state.folderId.value;
     if (folderId.length === 0) {
       return "A folder must be selected.";
     }
@@ -132,11 +143,12 @@ export default class AddNote extends Component {
       </option>
     ));
 
-    // const firstFolder = folders[0];
-    // const defaultFolder = Object.values(firstFolder)[0];
-
-    // console.log(firstFolder);
-    // console.log(defaultFolder);
+    const firstFolderObject = folders[0];
+    const defaultFolderArray = Object.values(firstFolderObject);
+    const defaultFolderName = defaultFolderArray[0];
+    console.log(firstFolderObject);
+    console.log(defaultFolderArray);
+    console.log(defaultFolderName);
 
     return (
       <form className="AddNote" onSubmit={e => this.handleSubmit(e)}>
@@ -180,7 +192,7 @@ export default class AddNote extends Component {
             placeholder="Folder Name"
             required
             onChange={e => this.updateFolderId(e.target.value)}
-            defaultValue="oranges"
+            defaultValue={defaultFolderName}
           >
             {options}
           </select>
