@@ -47,7 +47,7 @@ exports[`Note component renders a .Note by default 1`] = `
       <span
         className="Date"
       >
-        6th Feb 2021
+        2nd Feb 2021
       </span>
     </div>
   </div>
@@ -103,7 +103,7 @@ exports[`Note component renders the Note given props 1`] = `
       <span
         className="Date"
       >
-        6th Feb 2021
+        2nd Feb 2021
       </span>
     </div>
   </div>
